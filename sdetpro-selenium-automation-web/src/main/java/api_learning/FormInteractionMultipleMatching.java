@@ -12,7 +12,7 @@ public class FormInteractionMultipleMatching {
     private static final String TARGET_URL = "https://the-internet.herokuapp.com/login";
     private static final By LOGIN_INPUT_FIELDS_SEL = By.tagName("input");
     private static final By LOGIN_BTN_SEL = By.cssSelector("[type = 'submit']");
-    
+
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = DriverFactory.getWebDriver();
         driver.get(TARGET_URL);
