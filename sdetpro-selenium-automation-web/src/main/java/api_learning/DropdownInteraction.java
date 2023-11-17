@@ -21,28 +21,20 @@ public class DropdownInteraction {
 
             // by visible Text
             select.selectOption1();
-            debugWait();
+            Thread.sleep(1500);
 
             // by Index
             select.selectByIndex(2);
-            debugWait();
+            Thread.sleep(1500);
 
             // by value
             select.selectByValue("1");
-            debugWait();
+            Thread.sleep(1500);
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             driver.quit();
-        }
-    }
-
-    private static void debugWait() {
-        try {
-            Thread.sleep(1500);
-        } catch (Exception ignored) {
-
         }
     }
 }
