@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-@ComponentCSSSelector(".column.customer-service")
-public class CustomerServiceColumnComponent extends FooterColumnComponent {
-    public CustomerServiceColumnComponent(WebDriver driver, WebElement component) {
+@ComponentCSSSelector(".column.follow-us")
+public class FollowUsColumnComponent extends FooterColumnComponent {
+    public FollowUsColumnComponent(WebDriver driver, WebElement component) {
         super(driver, component);
     }
 }

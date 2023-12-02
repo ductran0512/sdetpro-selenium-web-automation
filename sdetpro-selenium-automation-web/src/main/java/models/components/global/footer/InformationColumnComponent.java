@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 
 // @ComponentCSSSelector("div[class*='information']")
 @ComponentCSSSelector(".column.information")
-public class InfomationColumnComponent extends FooterComlumnComponent{
-    public InfomationColumnComponent(WebDriver driver, WebElement component) {
+public class InformationColumnComponent extends FooterColumnComponent {
+    public InformationColumnComponent(WebDriver driver, WebElement component) {
         super(driver, component);
     }
 }
