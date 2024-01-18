@@ -3,7 +3,6 @@ package models.components;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import support.ui.ExpectedConditionsEx;
@@ -26,11 +25,11 @@ public class Component {
         this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
     }
 
-    public WebElement getComponent() {
+    public WebElement getComponent(){
         return this.component;
     }
 
-    public WebDriverWait componentWait() {
+    public WebDriverWait componentWait(){
         return this.wait;
     }
 
@@ -54,7 +53,6 @@ public class Component {
         } catch (Exception e) {
             throw new IllegalArgumentException("[ERR] The component must have annotation for: CssSelector, ID...");
         }
-
         List<WebElement> results = wait.until(ExpectedConditionsEx.presenceOfAllElementsLocatedBy(this.component, componentSelector));
 
         // Define component's constructor
@@ -65,7 +63,7 @@ public class Component {
         } catch (Exception e) {
             throw new IllegalArgumentException("[ERR] The component MUST have a constructor with params: " + Arrays.toString(params));
         }
-        // Convert List<WebElement> in List<Component>
+        // Convert List<WebElement> into List<Component>
         List<T> components = results.stream().map(webElement -> {
             try {
                 return constructor.newInstance(driver, webElement);
@@ -84,8 +82,8 @@ public class Component {
         } else if (componentClass.isAnnotationPresent(ComponentIDSelector.class)) {
             return By.id(componentClass.getAnnotation(ComponentIDSelector.class).value());
         } else {
-            throw new IllegalArgumentException("Component class" + componentClass + "must have annotation!");
+            throw new IllegalArgumentException("Component class" + componentClass + " must have annotation!");
         }
     }
-}
 
+}
