@@ -5,6 +5,7 @@ import models.components.ComponentCSSSelector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import test_data.CreditCardType;
@@ -54,7 +55,7 @@ public class PaymentInformationComponent extends Component {
 
     public void inputExpiredMonth(String month) {
         Select select = new Select(findElement(cardExpiredMonthDropdownSel));
-        select.selectByVisibleText("0"+month);
+        select.selectByVisibleText(month);
     }
 
     public void inputExpiredYear(String year) {
@@ -72,6 +73,7 @@ public class PaymentInformationComponent extends Component {
 
     public void clickOnContinueBtn() {
         findElement(continueBtnSel).click();
+        wait.until(ExpectedConditions.invisibilityOf(findElement(continueBtnSel)));
     }
 
 }

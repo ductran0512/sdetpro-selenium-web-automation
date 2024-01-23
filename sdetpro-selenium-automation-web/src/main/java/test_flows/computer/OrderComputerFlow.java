@@ -187,7 +187,7 @@ public class OrderComputerFlow<T extends ComputerEssentialComponent> {
         paymentMethodComp.clickOnContinueBtn();
     }
 
-    /* ******************************************
+    /*
      * https://www.paypalobjects.com/en_AU/vhelp/paypalmanager_help/credit_card_numbers.htm
      * OR here(using generate feature): https://developer.paypal.com/api/rest/sandbox/card-testing/#link-creditcardgenerator
      * (Thanks Le Hoai Duc for sharing this link)
@@ -209,7 +209,9 @@ public class OrderComputerFlow<T extends ComputerEssentialComponent> {
 
             // Current month and next year
             Calendar calendar = new GregorianCalendar();
-            paymentInformationComp.inputExpiredMonth(String.valueOf(calendar.get(Calendar.MONTH) + 1));
+            int expiredMonthNum = calendar.get(Calendar.MONTH) + 1;
+            String expiredMonthStr = expiredMonthNum < 10 ? "0" + expiredMonthNum : String.valueOf(expiredMonthNum);
+            paymentInformationComp.inputExpiredMonth(expiredMonthStr);
             paymentInformationComp.inputExpiredYear(String.valueOf(calendar.get(Calendar.YEAR) + 1));
             paymentInformationComp.inputCardCode("123");
             paymentInformationComp.clickOnContinueBtn();
